@@ -2,6 +2,9 @@ package com.in28minutes.learn_spring_framework;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+import java.util.stream.StreamSupport;
+
 public class App02HelloWorldSpring {
 
     public static void main(String[] args) {
@@ -23,5 +26,9 @@ public class App02HelloWorldSpring {
 
         System.out.println(context.getBean(Address.class));
         ;
+        System.out.println(context.getBean("Person5Qualifier"));
+        //bean에 뭐가 있는지 나열하는 것.
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
     }
 }
